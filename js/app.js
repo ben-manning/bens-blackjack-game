@@ -34,7 +34,7 @@ let playerTotal = 0;
 let dealerTotal;
 
 // cached elements
-const playerDealButton = document.querySelector('#playerDrawBtn');
+const playerDrawButton = document.querySelector('#playerDrawBtn');
 
 
 // functions
@@ -53,4 +53,4 @@ const dealACard = () => {
 // create a button the user can click so it would mimic a draw
 
 // event listeners
-playerDealButton.addEventListener('click', dealACard);
+playerDrawButton.addEventListener('click', dealACard);
