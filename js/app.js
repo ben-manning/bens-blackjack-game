@@ -24,8 +24,10 @@
 //  the dealer is closer to 21 than the player
 
 
-// currents bugs
+// currents bugs:
 // right now my random number generates zero sometimes
+// DRY up the Math methods
+// fix the camel case html ids
 
 
 // variables constants
@@ -37,15 +39,35 @@ let playerTurn = true; // this is the starting value of the player turn
 // cached elements -- buttons or things from the html
 const playerDrawButton = document.querySelector('#playerDrawBtn');
 const changeTurn = document.querySelector('#changeTurn');
+const playerTotalDisplay = document.querySelector('#player-total');
+const dealerTotalDisplay = document.querySelector('#dealer-total');
+
 
 
 // functions --- the definitions of the functions i want to use
+const startTheGame = () => {
+  // draw the two player cards
+  let playerCardOne = Math.floor(Math.random() * 12);
+  let playerCardTwo = Math.floor(Math.random() * 12);
+  // set the playerTotal to those two cards;
+  playerTotal = playerCardOne + playerCardTwo;
+
+  // draw the dealer card
+  let dealerCardOne = Math.floor(Math.random() * 12);
+  // set the dealerTotal to the dealer card;
+  dealerTotal = dealerCardOne;
+
+  playerTotalDisplay.innerText = playerTotal;
+  dealerTotalDisplay.innerText = dealerTotal;
+}
+
+
 const dealACard = () => {
   // generate random number 1 - 11
   let currentDraw = Math.floor(Math.random() * 12)
   // add the number to the player total
   playerTotal = playerTotal + currentDraw;
-  console.log(playerTotal);
+  playerTotalDisplay.innerText = playerTotal;
 }
 
 const switchToDealer = () => {
@@ -61,3 +83,9 @@ const switchToDealer = () => {
 // event listeners
 playerDrawButton.addEventListener('click', dealACard);
 changeTurn.addEventListener('click', switchToDealer);
+
+
+// dealer will keep going until they hit 17 or bust
+
+// functions to call to start the program
+startTheGame();
