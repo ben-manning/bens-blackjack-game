@@ -89,3 +89,16 @@ changeTurn.addEventListener('click', switchToDealer);
 
 // functions to call to start the program
 startTheGame();
+
+
+
+
+// steps that ben would take
+// what do i want to happen on the page
+// click a button
+  // create the button in html
+  // use querySelector to grab the button in my javascript file
+  // create an eventListener that just sends a console log
+  // write a function that sends a different console log
+  // add that function to the event listener
+  // change the function to do what i really want it to do.  not console log
